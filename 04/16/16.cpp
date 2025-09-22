@@ -30,7 +30,7 @@ int main() {
             "Fechar Programa",
             "Vender Ingresso",
             "Mostrar total vendido (exibe o valor comercializado em cada parte do estádio e o total geral)",
-            "Mostrar o total de torcedores (exibe o total em cada categoria, juntamente como total geral)",
+            "Mostrar o total de torcedores (exibe o total em cada categoria, juntamente com o total geral)",
             "Encerrar partida (deve zerar todas as vendas para iniciar outra partida)"
     };
     size_t length = sizeof(opcoes) / sizeof(opcoes[0]);
