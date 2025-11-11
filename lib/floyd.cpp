@@ -9,6 +9,7 @@
     // P4. [Decrease j.] Decrease j by 1. If j > 1, return to step P2. 
 // fonte: Knuth, Donald E. (1969). Seminumerical algorithms. The Art of Computer Programming. Vol. 2. Reading, MA: Addison–Wesley. pp. 139–140. OCLC 85975465
 int shuffle(int arr[], int len) {
+    srand(time(NULL));
     for (int i = len - 1; i >= 1; i--) {
         int u = rand() % (i + 1);
         std::swap(arr[i], arr[u]);
@@ -44,6 +45,7 @@ int random(int arr[], int len, int min, int max) {
     }
 
     int i = 0;
+    srand(time(NULL));
     for (int j = n - (m) + 1; j <= n; j++) {
         int t = (rand() % j) + 1; // 1 to j
 
@@ -56,25 +58,12 @@ int random(int arr[], int len, int min, int max) {
         }
     }
 
-    std::cout << "F2: ";
-    for (int i = 0; i < m; i++) {
-        std::cout << '['<< s[i] << "], ";
-    }
-    std::cout << std::endl;
-
     shuffle(s, m);
-
-    std::cout << "Fisher-Yates: ";
-    for (int i = 0; i < m; i++) {
-        std::cout << s[i] << ", ";
-    }
-    std::cout << std::endl;
 
     return 0;
 }
 
 int main() {
-    srand((unsigned int)time(0));
     std::cout << "teste do algoritmo de Floyd (F2) para sampling, com embaralhamento do arranjo com o algoritmo de Fisher Yates" << std::endl;
     int len = 10;
     int arr[len];
