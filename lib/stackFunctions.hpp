@@ -4,6 +4,7 @@
 #include "stack.hpp"
 
 #include <string>
+#include <iostream>
 
 bool balancedParenthesesString(std::string expression) {
     Stack<char> stack;
@@ -24,6 +25,8 @@ bool balancedParenthesesString(std::string expression) {
         }
     }
 
+    deleteStack(&stack);
+
     return true;
 }
 
@@ -42,6 +45,8 @@ bool searchWithAux(Stack<T>* stack, T value) {
     for ( int i = stack->top; i > stack->bottom; i-- ) {
         push(stack, pop(&aux));
     }
+
+    deleteStack(aux);
 
     return found;
 }
