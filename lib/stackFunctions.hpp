@@ -7,25 +7,24 @@
 #include <iostream>
 
 bool balancedParenthesesString(std::string expression) {
-    Stack<char> stack;
-    newStack(&stack, expression.size());
+    Stack<char> stack(expression.size());
 
     for (char c : expression) {
         if (c == '(') {
-            push(&stack, c);
+            push(stack, c);
             continue;
         }
 
         if (c == ')') {
-            if(isEmpty(&stack)) {
+            if(isEmpty(stack)) {
                 return false;
             }
 
-            pop(&stack);
+            pop(stack);
         }
     }
 
-    deleteStack(&stack);
+    deleteStack(stack);
 
     return true;
 }
