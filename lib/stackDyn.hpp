@@ -2,6 +2,7 @@
 #define STACK_DYN
 
 #include <iostream>
+#include <stdexcept>
 template<typename T>
 struct Node{
     T data;
@@ -19,15 +20,15 @@ struct Stack{
 
 
 template<typename T>
-void deleteStack(Stack<T> *stack) {
+void deleteStack(Stack<T> &stack) {
     while (! isEmpty(stack)) {
-        pop(&stack);
+        pop(stack);
     }
 }
 
 template<typename T>
-bool isEmpty(Stack<T> *stack) {
-    if (stack->top == nullptr) {
+bool isEmpty(Stack<T> &stack) {
+    if (stack.top == nullptr) {
         return true;
     }
 
@@ -35,45 +36,44 @@ bool isEmpty(Stack<T> *stack) {
 }
 
 template<typename T>
-void push(Stack<T> *stack, T val) {
+void push(Stack<T> &stack, T val) {
     Node<T> *node = new Node<T>;
     node->data = val;
-    node->next = stack->top;
-    stack->top = node;
+    node->next = stack.top;
+    stack.top = node;
 }
 
 template<typename T>
-T pop(Stack<T> *stack) {
-    T data = nullptr;
-    
+T pop(Stack<T> &stack) {
     if (isEmpty(stack)) {
-        return data;
+        throw std::runtime_error("Stack vazia");
     }
 
-    data = stack->top->data;
-    Node<T>* temp = stack->top;
-    stack->top = stack->top->next;
+    T data;
+    data = stack.top->data;
+    Node<T>* temp = stack.top;
+    stack.top = stack.top->next;
     delete temp;
 
     return data;
 }
 
 template<typename T>
-T peek(Stack<T> *stack) {
-    T data = nullptr;
+T peek(Stack<T> &stack) {
+    T data;
 
     if (isEmpty(stack)) {
-        return data;
+        throw std::runtime_error("Stack vazia");
     }
 
-    data = stack->top->data;
+    data = stack.top->data;
 
     return data;
 }
 
 template<typename T>
-bool search(Stack<T> *stack, T value) {
-    Node<T> *node = stack->top;
+bool search(Stack<T> &stack, T value) {
+    Node<T> *node = stack.top;
     
     while(node != nullptr) {
         if (node->data == value) {
@@ -87,8 +87,8 @@ bool search(Stack<T> *stack, T value) {
 }
 
 template<typename T>
-void show(Stack<T> *stack) {
-    Node<T> *node = stack->top;
+void show(Stack<T> &stack) {
+    Node<T> *node = stack.top;
     
     while(node != nullptr) {
         std::cout << node->data << ", ";
