@@ -1,16 +1,11 @@
 #include "menu.hpp"
 #include "clearScreen.hpp"
+#include "hang.hpp"
 
 #include <iostream>
 #include <string>
 
 using std::string, std::cout, std::cin, std::endl;
-
-void hang() {
-    cout << "Pressione [enter] para continuar";
-    cin.ignore();
-    getchar();
-}
 
 int menu(string header, string opcoes[], size_t length) {
     int userOpcao;
