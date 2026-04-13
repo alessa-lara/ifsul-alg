@@ -77,7 +77,7 @@ T peek(Queue<T>& queue) {
 template <typename T>
 void show(Queue<T>& queue) {
     if (isEmpty(queue))
-        throw std::logic_error("Queue vazia");
+        std::cout << "Queue vazia";
 
     NodeQueue<T>* curr = queue.head;
     while (curr != nullptr) {
@@ -89,9 +89,9 @@ void show(Queue<T>& queue) {
 template <typename T>
 bool search(Queue<T>& queue, T value) {
     if (isEmpty(queue))
-        throw std::logic_error("Queue vazia");
+       return false; 
 
-    NodeQueue<T> curr = queue.head;
+    NodeQueue<T>* curr = queue.head;
     while (curr != nullptr) {
         if (curr->data == value)
             return true;

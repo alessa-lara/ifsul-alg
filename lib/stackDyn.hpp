@@ -3,49 +3,48 @@
 
 #include <iostream>
 #include <stdexcept>
-template<typename T>
-struct Node{
+template <typename T>
+struct Node {
     T data;
-    Node<T> *next;
+    Node<T>* next;
 };
 
-template<typename T>
-struct Stack{
-    Node<T> *top;
+template <typename T>
+struct Stack {
+    Node<T>* top;
 
     Stack() {
         top = nullptr;
     }
 };
 
-
-template<typename T>
-void deleteStack(Stack<T> &stack) {
-    while (! isEmpty(stack)) {
+template <typename T>
+void deleteStack(Stack<T>& stack) {
+    while ( !isEmpty(stack) ) {
         pop(stack);
     }
 }
 
-template<typename T>
-bool isEmpty(Stack<T> &stack) {
-    if (stack.top == nullptr) {
+template <typename T>
+bool isEmpty(Stack<T>& stack) {
+    if ( stack.top == nullptr ) {
         return true;
     }
 
     return false;
 }
 
-template<typename T>
-void push(Stack<T> &stack, T val) {
-    Node<T> *node = new Node<T>;
+template <typename T>
+void push(Stack<T>& stack, T val) {
+    Node<T>* node = new Node<T>;
     node->data = val;
     node->next = stack.top;
     stack.top = node;
 }
 
-template<typename T>
-T pop(Stack<T> &stack) {
-    if (isEmpty(stack)) {
+template <typename T>
+T pop(Stack<T>& stack) {
+    if ( isEmpty(stack) ) {
         throw std::runtime_error("Stack vazia");
     }
 
@@ -58,11 +57,11 @@ T pop(Stack<T> &stack) {
     return data;
 }
 
-template<typename T>
-T peek(Stack<T> &stack) {
+template <typename T>
+T peek(Stack<T>& stack) {
     T data;
 
-    if (isEmpty(stack)) {
+    if ( isEmpty(stack) ) {
         throw std::runtime_error("Stack vazia");
     }
 
@@ -71,12 +70,12 @@ T peek(Stack<T> &stack) {
     return data;
 }
 
-template<typename T>
-bool search(Stack<T> &stack, T value) {
-    Node<T> *node = stack.top;
-    
-    while(node != nullptr) {
-        if (node->data == value) {
+template <typename T>
+bool search(Stack<T>& stack, T value) {
+    Node<T>* node = stack.top;
+
+    while ( node != nullptr ) {
+        if ( node->data == value ) {
             return true;
         }
 
@@ -86,11 +85,16 @@ bool search(Stack<T> &stack, T value) {
     return false;
 }
 
-template<typename T>
-void show(Stack<T> &stack) {
-    Node<T> *node = stack.top;
-    
-    while(node != nullptr) {
+template <typename T>
+void show(Stack<T>& stack) {
+    if ( isEmpty(stack) ) {
+        std::cout << "Stack vazia";
+        return;
+    }
+
+    Node<T>* node = stack.top;
+
+    while ( node != nullptr ) {
         std::cout << node->data << ", ";
         node = node->next;
     }
