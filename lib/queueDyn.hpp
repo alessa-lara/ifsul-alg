@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #ifndef QUEUE_DYN
 #define QUEUE_DYN
 
@@ -113,6 +114,8 @@ void deleteQueue(Queue<T>& queue) {
 
 #endif
 =======
+=======
+>>>>>>> 63a79ed ([feat](stack, queue) destructors and cleanup of ^M symbols)
 #ifndef QUEUE_DYN
 #define QUEUE_DYN
 
@@ -142,8 +145,13 @@ struct Queue {
     }
 
     ~Queue() {
+<<<<<<< HEAD
         while (!isEmpty(*this))
             dequeue(*this);
+=======
+        while (!isEmpty(this))
+            dequeue(this);
+>>>>>>> 63a79ed ([feat](stack, queue) destructors and cleanup of ^M symbols)
     }
 };
 
