@@ -18,36 +18,15 @@ struct Stack {
     }
 
     ~Stack() {
-<<<<<<< HEAD
         while (!isEmpty(*this))
             pop(*this);
-=======
-        while (!isEmpty(this))
-            pop(this);
->>>>>>> 63a79ed ([feat](stack, queue) destructors and cleanup of ^M symbols)
     }
 };
 
 template <typename T>
-<<<<<<< HEAD
-<<<<<<< HEAD
-void deleteStack(Stack<T>& stack) {
-    while ( !isEmpty(stack) ) {
-        pop(stack);
-    }
-}
-
-template <typename T>
 bool isEmpty(Stack<T>& stack) {
-    if ( stack.top == nullptr ) {
-=======
-=======
->>>>>>> 63a79ed ([feat](stack, queue) destructors and cleanup of ^M symbols)
-bool isEmpty(Stack<T>& stack) {
-    if (stack.top == nullptr) {
->>>>>>> 4652455 ([feat](stackFunctions) reverse, copy and isEqual functions)
+    if (stack.top == nullptr)
         return true;
-    }
 
     return false;
 }
@@ -62,16 +41,8 @@ void push(Stack<T>& stack, T val) {
 
 template <typename T>
 T pop(Stack<T>& stack) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    if ( isEmpty(stack) ) {
-=======
-=======
->>>>>>> 63a79ed ([feat](stack, queue) destructors and cleanup of ^M symbols)
-    if (isEmpty(stack)) {
->>>>>>> 4652455 ([feat](stackFunctions) reverse, copy and isEqual functions)
+    if (isEmpty(stack))
         throw std::runtime_error("Stack vazia");
-    }
 
     T data;
     data = stack.top->data;
@@ -86,9 +57,8 @@ template <typename T>
 T peek(Stack<T>& stack) {
     T data;
 
-    if ( isEmpty(stack) ) {
+    if (isEmpty(stack))
         throw std::runtime_error("Stack vazia");
-    }
 
     data = stack.top->data;
 
@@ -99,18 +69,9 @@ template <typename T>
 bool search(Stack<T>& stack, T value) {
     Node<T>* node = stack.top;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    while ( node != nullptr ) {
-        if ( node->data == value ) {
-=======
-=======
->>>>>>> 63a79ed ([feat](stack, queue) destructors and cleanup of ^M symbols)
     while (node != nullptr) {
-        if (node->data == value) {
->>>>>>> 4652455 ([feat](stackFunctions) reverse, copy and isEqual functions)
+        if (node->data == value)
             return true;
-        }
 
         node = node->next;
     }
@@ -120,26 +81,14 @@ bool search(Stack<T>& stack, T value) {
 
 template <typename T>
 void show(Stack<T>& stack) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    if ( isEmpty(stack) ) {
+    if (isEmpty(stack)) {
         std::cout << "Stack vazia";
         return;
     }
 
     Node<T>* node = stack.top;
 
-    while ( node != nullptr ) {
-=======
-    Node<T>* node = stack.top;
-
     while (node != nullptr) {
->>>>>>> 4652455 ([feat](stackFunctions) reverse, copy and isEqual functions)
-=======
-    Node<T>* node = stack.top;
-
-    while (node != nullptr) {
->>>>>>> 63a79ed ([feat](stack, queue) destructors and cleanup of ^M symbols)
         std::cout << node->data << ", ";
         node = node->next;
     }
