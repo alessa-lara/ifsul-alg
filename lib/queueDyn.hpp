@@ -25,14 +25,14 @@ struct Queue {
     }
 
     ~Queue() {
-        while (!isEmpty(*this))
+        while ( !isEmpty(*this) )
             dequeue(*this);
     }
 };
 
 template <typename T>
 bool isEmpty(Queue<T>& queue) {
-    if (queue.head == nullptr)
+    if ( queue.head == nullptr )
         return true;
 
     return false;
@@ -42,10 +42,10 @@ template <typename T>
 void enqueue(Queue<T>& queue, T data) {
     NodeQueue<T>* node = new NodeQueue(data);
 
-    if (node == nullptr)
+    if ( node == nullptr )
         throw std::bad_alloc();
 
-    if (isEmpty(queue))
+    if ( isEmpty(queue) )
         queue.head = node;
     else
         queue.tail->next = node;
@@ -55,15 +55,15 @@ void enqueue(Queue<T>& queue, T data) {
 
 template <typename T>
 T dequeue(Queue<T>& queue) {
-    if (isEmpty(queue))
-        throw std::logic_error("Queue vazia");
+    if ( isEmpty(queue) )
+        throw std::runtime_error("Queue vazia");
 
     T data = queue.head->data;
     NodeQueue<T>* old = queue.head;
     queue.head = queue.head->next;
     delete old;
 
-    if (isEmpty(queue))
+    if ( isEmpty(queue) )
         queue.tail = nullptr;
 
     return data;
@@ -71,8 +71,8 @@ T dequeue(Queue<T>& queue) {
 
 template <typename T>
 T peek(Queue<T>& queue) {
-    if (isEmpty(queue))
-        throw std::logic_error("Queue vazia");
+    if ( isEmpty(queue) )
+        throw std::runtime_error("Queue vazia");
 
     return queue.head->data;
 }
@@ -80,7 +80,7 @@ T peek(Queue<T>& queue) {
 template <typename T>
 void show(Queue<T>& queue) {
     NodeQueue<T>* curr = queue.head;
-    while (curr != nullptr) {
+    while ( curr != nullptr ) {
         std::cout << curr->data << ", ";
         curr = curr->next;
     }
@@ -89,8 +89,8 @@ void show(Queue<T>& queue) {
 template <typename T>
 bool search(Queue<T>& queue, T value) {
     NodeQueue<T>* curr = queue.head;
-    while (curr != nullptr) {
-        if (curr->data == value)
+    while ( curr != nullptr ) {
+        if ( curr->data == value )
             return true;
 
         curr = curr->next;
