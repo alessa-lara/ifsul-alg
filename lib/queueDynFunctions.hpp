@@ -44,3 +44,15 @@ Queue<T> split(Queue<T> queue, T val) {
 
     return subQueue;
 }
+
+template <typename T>
+void reverseQueue(Queue<T>& queue) {
+    if ( isEmpty(queue) )
+        return;
+
+    T front = dequeue(queue);
+
+    reverseQueue(queue);
+
+    enqueue(queue, front);
+}
