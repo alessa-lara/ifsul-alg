@@ -1,0 +1,150 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/etc/profiles/per-user/lara/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/home/lara/.local/scripts/"
+      - "/run/wrappers/bin/"
+      - "/home/lara/.nix-profile/bin/"
+      - "/nix/profile/bin/"
+      - "/home/lara/.local/state/nix/profile/bin/"
+      - "/etc/profiles/per-user/lara/bin/"
+      - "/nix/var/nix/profiles/default/bin/"
+      - "/run/current-system/sw/bin/"
+      - "/nix/store/vg8g4zbkx0qbxzpfb4mldlcpqwzfvsr7-wl-clipboard-2.3.0/bin/"
+      - "/nix/store/ibyqlgsq8if9b3ldd213c6p4mamlbp5x-kitty-0.47.4/bin/"
+      - "/nix/store/vwalk1kcnb5mr5c5c8100a96r9kgq4g2-imagemagick-7.1.2-23/bin/"
+      - "/nix/store/gi6n3gp7z0d1j4f2zpc7rwygjj45zgm4-ncurses-6.6-dev/bin/"
+    searched_directories:
+      - "/home/lara/.local/scripts/uname"
+      - "/run/wrappers/bin/uname"
+      - "/home/lara/.nix-profile/bin/uname"
+      - "/nix/profile/bin/uname"
+      - "/home/lara/.local/state/nix/profile/bin/uname"
+      - "/etc/profiles/per-user/lara/bin/uname"
+      - "/nix/var/nix/profiles/default/bin/uname"
+    found: "/run/current-system/sw/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/home/lara/.local/scripts"
+        - "/run/wrappers/bin"
+        - "/home/lara/.nix-profile/bin"
+        - "/nix/profile/bin"
+        - "/home/lara/.local/state/nix/profile/bin"
+        - "/etc/profiles/per-user/lara/bin"
+        - "/nix/var/nix/profiles/default/bin"
+        - "/run/current-system/sw/bin"
+        - "/nix/store/vg8g4zbkx0qbxzpfb4mldlcpqwzfvsr7-wl-clipboard-2.3.0/bin"
+        - "/nix/store/ibyqlgsq8if9b3ldd213c6p4mamlbp5x-kitty-0.47.4/bin"
+        - "/nix/store/vwalk1kcnb5mr5c5c8100a96r9kgq4g2-imagemagick-7.1.2-23/bin"
+        - "/nix/store/gi6n3gp7z0d1j4f2zpc7rwygjj45zgm4-ncurses-6.6-dev/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/etc/profiles/per-user/lara/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Linux - 7.1.1 - x86_64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/etc/profiles/per-user/lara/share/cmake-4.1/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmake"
+      - "make"
+      - "smake"
+    candidate_directories:
+      - "/home/lara/.local/scripts/"
+      - "/run/wrappers/bin/"
+      - "/home/lara/.nix-profile/bin/"
+      - "/nix/profile/bin/"
+      - "/home/lara/.local/state/nix/profile/bin/"
+      - "/etc/profiles/per-user/lara/bin/"
+      - "/nix/var/nix/profiles/default/bin/"
+      - "/run/current-system/sw/bin/"
+      - "/nix/store/vg8g4zbkx0qbxzpfb4mldlcpqwzfvsr7-wl-clipboard-2.3.0/bin/"
+      - "/nix/store/ibyqlgsq8if9b3ldd213c6p4mamlbp5x-kitty-0.47.4/bin/"
+      - "/nix/store/vwalk1kcnb5mr5c5c8100a96r9kgq4g2-imagemagick-7.1.2-23/bin/"
+      - "/nix/store/gi6n3gp7z0d1j4f2zpc7rwygjj45zgm4-ncurses-6.6-dev/bin/"
+    searched_directories:
+      - "/home/lara/.local/scripts/gmake"
+      - "/run/wrappers/bin/gmake"
+      - "/home/lara/.nix-profile/bin/gmake"
+      - "/nix/profile/bin/gmake"
+      - "/home/lara/.local/state/nix/profile/bin/gmake"
+      - "/etc/profiles/per-user/lara/bin/gmake"
+      - "/nix/var/nix/profiles/default/bin/gmake"
+      - "/run/current-system/sw/bin/gmake"
+      - "/nix/store/vg8g4zbkx0qbxzpfb4mldlcpqwzfvsr7-wl-clipboard-2.3.0/bin/gmake"
+      - "/nix/store/ibyqlgsq8if9b3ldd213c6p4mamlbp5x-kitty-0.47.4/bin/gmake"
+      - "/nix/store/vwalk1kcnb5mr5c5c8100a96r9kgq4g2-imagemagick-7.1.2-23/bin/gmake"
+      - "/nix/store/gi6n3gp7z0d1j4f2zpc7rwygjj45zgm4-ncurses-6.6-dev/bin/gmake"
+      - "/home/lara/.local/scripts/make"
+      - "/run/wrappers/bin/make"
+      - "/home/lara/.nix-profile/bin/make"
+      - "/nix/profile/bin/make"
+      - "/home/lara/.local/state/nix/profile/bin/make"
+      - "/etc/profiles/per-user/lara/bin/make"
+      - "/nix/var/nix/profiles/default/bin/make"
+      - "/run/current-system/sw/bin/make"
+      - "/nix/store/vg8g4zbkx0qbxzpfb4mldlcpqwzfvsr7-wl-clipboard-2.3.0/bin/make"
+      - "/nix/store/ibyqlgsq8if9b3ldd213c6p4mamlbp5x-kitty-0.47.4/bin/make"
+      - "/nix/store/vwalk1kcnb5mr5c5c8100a96r9kgq4g2-imagemagick-7.1.2-23/bin/make"
+      - "/nix/store/gi6n3gp7z0d1j4f2zpc7rwygjj45zgm4-ncurses-6.6-dev/bin/make"
+      - "/home/lara/.local/scripts/smake"
+      - "/run/wrappers/bin/smake"
+      - "/home/lara/.nix-profile/bin/smake"
+      - "/nix/profile/bin/smake"
+      - "/home/lara/.local/state/nix/profile/bin/smake"
+      - "/etc/profiles/per-user/lara/bin/smake"
+      - "/nix/var/nix/profiles/default/bin/smake"
+      - "/run/current-system/sw/bin/smake"
+      - "/nix/store/vg8g4zbkx0qbxzpfb4mldlcpqwzfvsr7-wl-clipboard-2.3.0/bin/smake"
+      - "/nix/store/ibyqlgsq8if9b3ldd213c6p4mamlbp5x-kitty-0.47.4/bin/smake"
+      - "/nix/store/vwalk1kcnb5mr5c5c8100a96r9kgq4g2-imagemagick-7.1.2-23/bin/smake"
+      - "/nix/store/gi6n3gp7z0d1j4f2zpc7rwygjj45zgm4-ncurses-6.6-dev/bin/smake"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/lara/.local/scripts"
+        - "/run/wrappers/bin"
+        - "/home/lara/.nix-profile/bin"
+        - "/nix/profile/bin"
+        - "/home/lara/.local/state/nix/profile/bin"
+        - "/etc/profiles/per-user/lara/bin"
+        - "/nix/var/nix/profiles/default/bin"
+        - "/run/current-system/sw/bin"
+        - "/nix/store/vg8g4zbkx0qbxzpfb4mldlcpqwzfvsr7-wl-clipboard-2.3.0/bin"
+        - "/nix/store/ibyqlgsq8if9b3ldd213c6p4mamlbp5x-kitty-0.47.4/bin"
+        - "/nix/store/vwalk1kcnb5mr5c5c8100a96r9kgq4g2-imagemagick-7.1.2-23/bin"
+        - "/nix/store/gi6n3gp7z0d1j4f2zpc7rwygjj45zgm4-ncurses-6.6-dev/bin"
+...
