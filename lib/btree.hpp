@@ -42,6 +42,45 @@ struct Binary_Tree {
         return current;
     }
 
+    Node<T>* remove(T val, Node<T>*& current) {
+        if ( this->search(val, this->root) == false )
+            return nullptr;
+
+        if ( val < current->data )
+            current->left = remove(val, current->left);
+        else if ( val > current->data )
+            current->right = remove(val, current->right);
+
+        else {
+            if ( current->left == nullptr && current->right == nullptr ) {
+                delete current;
+                return nullptr;
+            }
+
+            if ( current->left == nullptr ) {
+                Node<T>* aux = current->right;
+                delete current;
+                return aux;
+            }
+
+            if ( current->right == nullptr ) {
+                Node<T>* aux = current->left;
+                delete current;
+                return aux;
+            }
+
+            // there's two nodes below
+            Node<T>* aux = current->left;
+            while ( aux->left != nullptr && aux->right != nullptr )
+                aux = aux->right;
+
+            current->data = aux->data;
+            current->left = remove(aux->data, current->left);
+        }
+
+        return current;
+    }
+
     void in_order(Node<T>* node) {
         if ( node == nullptr )
             return;
@@ -83,14 +122,20 @@ struct Binary_Tree {
         if ( this->root == nullptr )
             return false;
 
-        if (node->data == value)
+        if ( node == nullptr )
+            return false;
+
+        if ( node->data == value )
             return true;
 
-        if (value < node->data)
-            search(value, node->left);
+        if ( value < node->data )
+            return search(value, node->left);
         else
-            search(value, node->right);
+            return search(value, node->right);
     }
+
+    void rotate_left();
+    void rotate_right();
 };
 
 #endif
