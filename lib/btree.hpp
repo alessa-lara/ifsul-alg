@@ -4,6 +4,13 @@
 #include "iostream"
 using namespace std;
 
+inline int max(int a, int b) {
+    if (a >= b)
+        return a;
+    else
+        return b;
+}
+
 template <typename T>
 struct Node {
     T data;
@@ -132,6 +139,27 @@ struct Binary_Tree {
             return search(value, node->left);
         else
             return search(value, node->right);
+    }
+
+    int height_subtree(bool left, bool right) {
+        if (left && right)
+            return height_subtree(this->root->left) + height_subtree(this->root->right);
+
+        if (left == true)
+            return height_subtree(this->root->left);
+
+        if (right == true)
+            return height_subtree(this->root->right);
+    }
+
+    int height_subtree(Node<T>* node) {
+        if (node == nullptr)
+            return 0;
+
+        if (node->left != nullptr || node->right != nullptr)
+            return 1 + max(height_subtree(node->left), height_subtree(node->right));
+
+        return 1;
     }
 
     void rotate_left();

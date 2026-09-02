@@ -1,6 +1,8 @@
 #include "lib/btree.hpp"
 #include <iostream>
 
+using namespace std;
+
 int main() {
     Binary_Tree<int> t = Binary_Tree<int>();
     t.insert(8, t.root);
@@ -14,6 +16,9 @@ int main() {
     t.search(1, t.root);
     t.remove(1, t.root);
 
+
     std::cout << "\n";
     t.in_order(t.root);
+
+    cout << "\n "<< t.height_subtree(true, false);
 }
