@@ -5,7 +5,7 @@
 using namespace std;
 
 inline int max(int a, int b) {
-    if (a >= b)
+    if ( a >= b )
         return a;
     else
         return b;
@@ -22,6 +22,11 @@ struct Node {
         this->left = left;
         this->right = right;
     }
+
+    ~Node() {
+        delete this->left;
+        delete this->right;
+    }
 };
 
 template <typename T>
@@ -30,6 +35,10 @@ struct Binary_Tree {
 
     Binary_Tree(Node<T>* root = nullptr) {
         this->root = root;
+    }
+
+    ~Binary_Tree() {
+        delete this->root;
     }
 
     Node<T>* insert(T val, Node<T>*& current) {
@@ -142,21 +151,21 @@ struct Binary_Tree {
     }
 
     int height_subtree(bool left, bool right) {
-        if (left && right)
-            return height_subtree(this->root->left) + height_subtree(this->root->right);
+        if ( left && right )
+            return max(height_subtree(this->root->left), height_subtree(this->root->right));
 
-        if (left == true)
+        if ( left == true )
             return height_subtree(this->root->left);
 
-        if (right == true)
+        if ( right == true )
             return height_subtree(this->root->right);
     }
 
     int height_subtree(Node<T>* node) {
-        if (node == nullptr)
+        if ( node == nullptr )
             return 0;
 
-        if (node->left != nullptr || node->right != nullptr)
+        if ( node->left != nullptr || node->right != nullptr )
             return 1 + max(height_subtree(node->left), height_subtree(node->right));
 
         return 1;
