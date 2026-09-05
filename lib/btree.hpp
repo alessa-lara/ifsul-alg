@@ -55,6 +55,8 @@ struct Binary_Tree {
         else if ( val >= current->data )
             current->right = insert(val, current->right);
 
+        balance_node(current);
+
         return current;
     }
 
@@ -94,6 +96,8 @@ struct Binary_Tree {
             current->left = remove(aux->data, current->left);
         }
 
+        balance_node(current);
+
         return current;
     }
 
@@ -101,37 +105,37 @@ struct Binary_Tree {
         if ( node == nullptr )
             return;
 
-        cout << "<<";
+        cout << "<";
         in_order(node->left);
-        cout << ">>";
-        cout << "<<" << node->data << ">>";
-        cout << "<<";
+        cout << ">";
+        cout << "<" << node->data << ">";
+        cout << "<";
         in_order(node->right);
-        cout << ">>";
+        cout << ">";
     }
 
     void pre_order(Node<T>*& node) {
         if ( node == nullptr )
             return;
 
-        cout << "<<" << node->data << ">>";
-        cout << "<<";
+        cout << "<" << node->data << ">";
+        cout << "<";
         pre_order(node->left);
-        cout << ">><<";
+        cout << "><";
         pre_order(node->right);
-        cout << ">>";
+        cout << ">";
     }
 
     void post_order(Node<T>*& node) {
         if ( node == nullptr )
             return;
 
-        cout << "<<";
+        cout << "<";
         post_order(node->left);
-        cout << ">><<";
+        cout << "><";
         post_order(node->right);
-        cout << ">>";
-        cout << "<<" << node->data << ">>";
+        cout << ">";
+        cout << "<" << node->data << ">";
     }
 
     bool search(T value, Node<T>* node) {
@@ -171,8 +175,51 @@ struct Binary_Tree {
         return 1;
     }
 
-    void rotate_left();
-    void rotate_right();
+    inline int balance_factor(Node<T>* node) {
+        return height_subtree(node->left) - height_subtree(node->right);
+    }
+
+    Node<T>* balance_node(Node<T>*& node) {
+        // LL - left left
+        if (balance_factor(node) > 1 && balance_factor(node->left) >= 0)
+            return rotate_right(node);
+
+        // LR - left right
+        if (balance_factor(node) > 1 && balance_factor(node->left) < 0) {
+            node->left = rotate_left(node->left);
+            return rotate_right(node);
+        }
+
+        // RR - right right
+        if (balance_factor(node) < -1 && balance_factor(node->right) <= 0)
+            return rotate_left(node);
+
+        // RL - right left
+        if (balance_factor(node) < -1 && balance_factor(node->right) > 0) {
+            node->right = rotate_right(node->right);
+            return rotate_left(node);
+        }
+
+        return node;
+    }
+
+    Node<T>* rotate_left(Node<T>*& node) {
+        Node<T>*& right = node->right;
+
+        node->right = right->left;
+        right->left = node;
+
+        return right;
+    }
+
+    Node<T>* rotate_right(Node<T>*& node) {
+        Node<T>*& left = node->left;
+
+        node->left = left->right;
+        left->right = node;
+
+        return left;
+    }
 };
 
 #endif
